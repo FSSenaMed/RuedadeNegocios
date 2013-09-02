@@ -1,0 +1,90 @@
+/* vista*/
+.divi{
+    background-color:#D5E7FD;
+}
+
+.imagen:hover{
+    cursor: pointer;
+}
+
+.box-button
+{
+	cursor: pointer;
+			-webkit-border-radius: 70px;
+		border-radius: 70px;
+}
+
+.box-button:hover 
+{
+	background-color:#D5E7FD;
+
+}
+.text:hover 
+{
+
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 20px 10px #11AFEE;
+			box-shadow: 0px 0px 20px 10px #11AFEE;
+}
+.detalle:hover
+{
+	background-color:#D5E7FD;
+}
+
+
+.opcion 
+{
+	cursor: pointer;
+	-webkit-border-radius: 70px;
+	border-radius: 70px;
+
+}
+
+.opcion:hover 
+{
+	background-color:#D5E7FD;
+	-webkit-box-shadow: 0px 0px 20px 10px #11AFEE;
+	box-shadow: 0px 0px 20px 10px #11AFEE;
+}
+.consulta:hover{
+	color:#4AAEFF;
+}
+.consulta{
+	cursor: pointer;
+}
+.success{
+	background-color:#CFF6CE;
+}
+
+#mensaje{
+    
+/*   position: absolute;*/
+    float: left;
+    top: 121px;
+    left: 20px;
+    width: 90%;
+    height: auto;  
+    _position: relative;
+    text-align: center;
+    
+}
+.ref{
+	background: 
+}
+
+.shadows{
+-webkit-box-shadow:  -5px 5px 20px 5px rgba(0, 0, 0, .5);
+        
+        box-shadow:  -5px 5px 20px 5px rgba(0, 0, 0, .5);
+        -webkit-border-radius: 12px;
+border-radius: 12px;
+
+
+
+}
+#contenido{
+-webkit-box-shadow:  -5px 5px 20px 5px rgba(0, 0, 0, .5);
+        
+        box-shadow:  -5px 5px 20px 5px rgba(0, 0, 0, .5);
+
+}

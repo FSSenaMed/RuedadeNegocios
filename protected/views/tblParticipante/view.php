@@ -15,15 +15,8 @@ $this->menu=array(
 	array('label'=>'Andinistrar Participante', 'url'=>array('admin')),
 );
 ?>
-<style>
-.divi{
-    background-color:#D5E7FD;
-}
 
-.imagen:hover{
-    cursor: pointer;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
 
 <div class="hero-unit divi">
 <h1>Participante<?php echo "    ".$model->parti_nombreempresa; ?></h1>
@@ -83,5 +76,28 @@ $this->menu=array(
         'partiSector.sec_nombre',       
     ),
 )); ?>
-</div>
 
+
+<center>
+            <!-- nuevos botones-->
+            <?php echo CHtml::link(CHtml::Button('Lo que vende', array('class'=>'btn btn-info btn-large')), array('TblParticipante/portafolio', 'cate'=>1, 'id'=>$model->part_id)); ?>
+            <?php echo CHtml::link(CHtml::Button('Lo que necesita', array('class'=>'btn btn-info btn-large')), array('TblParticipante/portafolio', 'cate'=>2, 'id'=>$model->part_id)); ?>
+</center>
+
+
+</div>
+  <?php
+ if( Yii::app()->getModule('user')->isAdmin())
+ {
+?> 
+    <center>
+   <?php echo CHtml::link(CHtml::Button('Atras', array('class'=>'btn btn-success btn-large')), array('tblParticipante/admin')); ?>
+    </center>
+<?php 
+
+}else
+{
+ echo CHtml::link(CHtml::Button('Principal', array('class'=>'btn btn-success btn-large')), array('site/index'));
+
+}
+ ?>

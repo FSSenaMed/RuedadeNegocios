@@ -40,36 +40,36 @@ return array(
                         'generatorPaths'=>array('bootstrap.gii',),
                     ),
                     'user'=>array(
-                    # encrypting method (php hash function)
-                    'hash' => 'md5',
+                        # encrypting method (php hash function)
+                        'hash' => 'md5',
 
-                    # send activation email
-                    'sendActivationMail' => true,
+                        # send activation email
+                        'sendActivationMail' => true,
 
-                    # allow access for non-activated users
-                    'loginNotActiv' => false,
+                        # allow access for non-activated users
+                        'loginNotActiv' => false,
 
-                    # activate user on registration (only sendActivationMail = false)
-                    'activeAfterRegister' => false,
+                        # activate user on registration (only sendActivationMail = false)
+                        'activeAfterRegister' => false,
 
-                    # automatically login from registration
-                    'autoLogin' => true,
+                        # automatically login from registration
+                        'autoLogin' => true,
 
-                    # registration path
-                    'registrationUrl' => array('/user/registration'),
+                        # registration path
+                        'registrationUrl' => array('/user/registration'),
 
-                    # recovery password path
-                    'recoveryUrl' => array('/user/recovery'),
+                        # recovery password path
+                        'recoveryUrl' => array('/user/recovery'),
 
-                    # login form path
-                    'loginUrl' => array('/user/login'),
+                        # login form path
+                        'loginUrl' => array('/user/login'),
 
-                    # page after login
-                    'returnUrl' => array('/user/profile'),
+                        # page after login
+                        'returnUrl' => array('/user/profile'),
 
-                    # page after logout
-                    'returnLogoutUrl' => array('/user/login'),
-                ),
+                        # page after logout
+                        'returnLogoutUrl' => array('/user/login'),
+                    ),
 		
 	),
 
@@ -120,7 +120,6 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
-            
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -142,6 +141,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'soporte@ruedadenegocios.net',
 	),
 );

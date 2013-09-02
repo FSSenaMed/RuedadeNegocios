@@ -2,23 +2,47 @@
 	'eleccion',
 ); ?>
 
-		<style>
-		.box-button {cursor: pointer;
-			-webkit-border-radius: 70px;
-		border-radius: 70px;
+
+<?php if(Yii::app()->user->getFlash('Cita Exitosa')){ ?>
+
+	<script type="text/javascript">
+
+			$(document).ready(function(){
+				// nombre del modal = dialog
+				$('#dialog').modal('show');
+
+			});
+
+	</script>
+
+<?php } ?>
 
 
-		}
+<!--Modal-->
+<div id="dialog" class="modal hide fade">
+	<div class="modal-header">
 
-		.box-button:hover {
-				background-color:#D5E7FD;
-				-webkit-box-shadow: 0px 0px 20px 10px #11AFEE;
-				box-shadow: 0px 0px 20px 10px #11AFEE;
-		}
-</style>
+		 <center>
+         	<h3 class="btn-success">¡Cita exitosa!</h3>
+         </center> 
 
+    </div>
 
-<h1>Busque producos en oferta o demanda</h1><br><br>
+    <div class="modal-body">
+        Puede realizar otra cita en el fomulario de busqueda de productos
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+
+	</div>
+
+</div>
+
+<h1>Busque productos en oferta o demanda</h1><br><br>
+
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
+
 
 <div class="container">
 	<table class="table table-striped">
@@ -26,7 +50,7 @@
 			<tr>
 				<td>
 			
-				<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/buscar', array('cate'=>1))?>'">
+				<div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/filtrar', array('cate'=>1))?>'">
 					<center>
 
 						<h1>Se ofrecen</h1>
@@ -37,7 +61,7 @@
 				</td>
 
 				<td>
-				<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/buscar', array('cate'=>2))?>'">
+				<div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/filtrar', array('cate'=>2))?>'">
 					<center>
 
 						<h1>Se necesitan</h1>

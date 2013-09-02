@@ -40,8 +40,8 @@ class TblHistorico extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('histo_id, histo_horainic, mesa_id', 'required'),
-			array('histo_id, mesa_id', 'numerical', 'integerOnly'=>true),
+			array('histo_horainic, mesa_id', 'required'),
+			array('mesa_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('histo_id, histo_horainic, mesa_id', 'safe', 'on'=>'search'),

@@ -4,62 +4,59 @@
 // Any writable CConsoleApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Rueda de Negocios - FSSenaMed',
+	'name'=>'My Console Application',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
         'modules'=>array(
         #...
-        'user'=>array(
-                # encrypting method (php hash function)
-                'hash' => 'md5',
+            'user'=>array(
+                    # encrypting method (php hash function)
+                    'hash' => 'md5',
 
-                # send activation email
-                'sendActivationMail' => true,
+                    # send activation email
+                    'sendActivationMail' => true,
 
-                # allow access for non-activated users
-                'loginNotActiv' => false,
+                    # allow access for non-activated users
+                    'loginNotActiv' => false,
 
-                # activate user on registration (only sendActivationMail = false)
-                'activeAfterRegister' => false,
+                    # activate user on registration (only sendActivationMail = false)
+                    'activeAfterRegister' => false,
 
-                # automatically login from registration
-                'autoLogin' => true,
+                    # automatically login from registration
+                    'autoLogin' => true,
 
-                # registration path
-                'registrationUrl' => array('/user/registration'),
+                    # registration path
+                    'registrationUrl' => array('/user/registration'),
 
-                # recovery password path
-                'recoveryUrl' => array('/user/recovery'),
+                    # recovery password path
+                    'recoveryUrl' => array('/user/recovery'),
 
-                # login form path
-                'loginUrl' => array('/user/login'),
+                    # login form path
+                    'loginUrl' => array('/user/login'),
 
-                # page after login
-                'returnUrl' => array('/user/profile'),
+                    # page after login
+                    'returnUrl' => array('/user/profile'),
 
-                # page after logout
-                'returnLogoutUrl' => array('/user/login'),
-            ),
-            #...
+                    # page after logout
+                    'returnLogoutUrl' => array('/user/login'),
+                ),
+                #...
         ),
-
 	// application components
 	'components'=>array(
 		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
 		// uncomment the following to use a MySQL database
-		
-                'db'=>array(
+		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=db_ruedadenegocios',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
+			'username' => 'ruedanegocios',
+			'password' => 'userfabdev',
 			'charset' => 'utf8',
-                     'tablePrefix' => 'tbl_',
+                        'tablePrefix' => 'tbl_',
 		),
-		
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

@@ -1,4 +1,3 @@
-
 <!-- Mostrar en forma de modal que no puede salir-->
 <?php if(Yii::app()->user->getFlash('salir')){ ?>
 
@@ -37,20 +36,7 @@
 </div>
 
 
-		<style>
-		.box-button {cursor: pointer;
-			-webkit-border-radius: 70px;
-		border-radius: 70px;
-
-
-		}
-
-		.box-button:hover {
-background-color:#D5E7FD;
--webkit-box-shadow: 0px 0px 20px 10px #11AFEE;
-box-shadow: 0px 0px 20px 10px #11AFEE;
-		}
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
 
 
 <h1>
@@ -63,7 +49,7 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
 		<tr>
 			<td>
 			
-			<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/agregar', array('id'=>$id, 'cate'=>1),'&')?>'">
+			<div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/agregar', array('id'=>$id, 'cate'=>1),'&')?>'">
 				<center>
 					<h1>Vendo</h1>
 
@@ -73,7 +59,7 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
 		
 			</td>
 			<td>
-			<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/agregar', array('id'=>$id, 'cate'=>2),'&')?>'">
+			<div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/agregar', array('id'=>$id, 'cate'=>2),'&')?>'">
 				<center>
 					<h1>Necesito</h1>
 
@@ -85,7 +71,7 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
 		<tr>
 			<td colspan = "2">
 			<center>
-					<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/salir', array('id'=>$id)) ?>'">
+					<div class="hero-unit opcion" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('portafolio/salir', array('id'=>$id)) ; ?>'">
 					<center>
 					<h1>Finalizar</h1>
 

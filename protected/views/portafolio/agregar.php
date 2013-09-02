@@ -1,4 +1,8 @@
 <!--titulo-->
+<div class="container">
+    <div class="span12">
+        
+ 
 <?php if($categoria == '1'){ ?>
 	
 	<h3>Describa brevemente el producto que ofrece</h3>
@@ -9,6 +13,8 @@
 	<h3>Describa brevemente el producto que necesita</h3>
 
 <?php } ?>
+   </div>
+</div>
 
 
 <?php $form=$this->beginWidget(	'CActiveForm',array(
@@ -16,9 +22,14 @@
 		'enableAjaxValidation'=>false,
 )); ?>
 
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-    
+
+<div class="container">
+    <div class="span12">
+        <div class="hero-unit shadows">
+ 
 	<p class="note">Los campos con  <span class="required">*</span> son requeridos.</p>
 
 <?php echo $form->errorSummary($model); ?>
@@ -57,7 +68,10 @@
 	</div>
 <?php $this->endWidget(); ?>
 
-
+       </div>
+    <div>
+</div>
+    
 
 <?php 
 

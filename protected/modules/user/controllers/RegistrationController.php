@@ -31,9 +31,10 @@ class RegistrationController extends Controller
 				Yii::app()->end();
 			}
 			
-		    if (Yii::app()->user->id) {
-		    	$this->redirect(Yii::app()->controller->module->profileUrl);
-		    } else {
+		    //if (Yii::app()->user->id) {
+		    	//$this->redirect(Yii::app()->controller->module->profileUrl);
+                          // $this->render('/user/registration',array('model'=>$model,'profile'=>$profile));
+		   // } else {
 		    	if(isset($_POST['RegistrationForm'])) {
 					$model->attributes=$_POST['RegistrationForm'];
 					$profile->attributes=((isset($_POST['Profile'])?$_POST['Profile']:array()));
@@ -45,6 +46,7 @@ class RegistrationController extends Controller
 						$model->verifyPassword=UserModule::encrypting($model->verifyPassword);
 						$model->superuser=0;
 						$model->status=((Yii::app()->controller->module->activeAfterRegister)?User::STATUS_ACTIVE:User::STATUS_NOACTIVE);
+                                                $model->status = 1;
 						
 						if ($model->save()) {
 							$profile->user_id=$model->id;
@@ -75,6 +77,6 @@ class RegistrationController extends Controller
 					} else $profile->validate();
 				}
 			    $this->render('/user/registration',array('model'=>$model,'profile'=>$profile));
-		    }
+		   // }
 	}
 }

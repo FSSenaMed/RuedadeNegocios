@@ -106,4 +106,34 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	
+
+	public function actionValidar()
+	{
+		$model = new TblParticipante();
+
+		if(isset($_POST['TblParticipante'])){
+			$model->attributes = $_POST['TblParticipante'];
+			
+			$criteria = new CDbCriteria();
+			$criteria->condition = "parti_nit = :a";
+			$criteria->params = array(":a"=>$model->parti_nit);
+			$modelConsulta = TblParticipante::model()->findAll($criteria);
+
+			if(count($modelConsulta) > 0){
+
+				Yii::app()->user->setFlash('inscrito','ya esta inscrito este usuario');
+
+			}else {
+				$this->redirect(array('TblParticipante/create','nit'=>$model->parti_nit));
+			}
+
+
+		}
+		echo "string";
+
+		
+		$this->render("validar",array('model'=>$model));
+	}
 }

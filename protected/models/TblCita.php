@@ -8,9 +8,10 @@
  * @property string $cita_hora
  * @property integer $registro_idEmp1
  * @property integer $registro_idEmp2
+ * @property integer $historico
  *
  * The followings are the available model relations:
- * @property TblRegistro $registroIdEmp1
+ * @property TblHistorico $historico0
  * @property TblRegistro $registroIdEmp2
  */
 class TblCita extends CActiveRecord
@@ -41,12 +42,12 @@ class TblCita extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cita_id, cita_hora, registro_idEmp1, registro_idEmp2', 'required'),
-			array('cita_id, registro_idEmp1, registro_idEmp2', 'numerical', 'integerOnly'=>true),
+			array('cita_hora, registro_idEmp1, registro_idEmp2, historico', 'required'),
+			array('registro_idEmp1, registro_idEmp2, historico', 'numerical', 'integerOnly'=>true),
 			array('cita_hora', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('cita_id, cita_hora, registro_idEmp1, registro_idEmp2', 'safe', 'on'=>'search'),
+			array('cita_id, cita_hora, registro_idEmp1, registro_idEmp2, historico', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +59,7 @@ class TblCita extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'registroIdEmp1' => array(self::BELONGS_TO, 'TblRegistro', 'registro_idEmp1'),
+			'historico0' => array(self::BELONGS_TO, 'TblHistorico', 'historico'),
 			'registroIdEmp2' => array(self::BELONGS_TO, 'TblRegistro', 'registro_idEmp2'),
 		);
 	}
@@ -73,6 +74,7 @@ class TblCita extends CActiveRecord
 			'cita_hora' => 'Cita Hora',
 			'registro_idEmp1' => 'Registro Id Emp1',
 			'registro_idEmp2' => 'Registro Id Emp2',
+			'historico' => 'Historico',
 		);
 	}
 
@@ -91,6 +93,7 @@ class TblCita extends CActiveRecord
 		$criteria->compare('cita_hora',$this->cita_hora,true);
 		$criteria->compare('registro_idEmp1',$this->registro_idEmp1);
 		$criteria->compare('registro_idEmp2',$this->registro_idEmp2);
+		$criteria->compare('historico',$this->historico);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

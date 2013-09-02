@@ -12,7 +12,14 @@ $this->menu=array(
 	array('label'=>'Administra Participantes', 'url'=>array('admin')),
 );
 ?>
+<center>
 
-<h1>Crear Participante</h1>
+	<div class="container">
+		<div class = "span12">
+
+			<h1>Registre su empresa</h1>
+		</div>
+	</div>
+</center>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

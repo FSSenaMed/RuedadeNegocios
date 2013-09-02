@@ -140,11 +140,7 @@ class PortafolioController extends Controller
 
 
 
-
-
-
-
-	public function actionBuscar($cate)
+	public function actionBuscar($cate, $sector)
 	{
 		// creo un modelo de producto para hacer el filtro con el campo prod_sector
 		//y un criterio que va a cambiar dependiendo de los datos que se reciba por POST.
@@ -164,29 +160,21 @@ class PortafolioController extends Controller
 	            			 ), 
 	         	);
 
+	            
+	            
 	    		$criteria->compare('id_categoria', $cate);
-	    // verifico si hay datos por Post
-		if(isset($_POST['TblProducto'])){
-			
-			$model->attributes=$_POST['TblProducto'];
-
-			if($model->prod_sector != null){
-
-		// si hay datos por POST  y el campo prod_sector es diferente de null, significa que 
-		// selecciono un sector para buscar, entonces creo un criterio de busqueda						
-					
-			        $criteria->compare('prod_sector',$model->prod_sector);
-
-				}			
-		}
+	    		if($sector != 0){
+	    			$criteria->compare('prod_sector', $sector);
+	    		}
 
 		$dataProvider=new CActiveDataProvider('TblProducto',array('criteria'=>$criteria));
 
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider, 'model'=>$model,'cate'=>$cate,
+			'dataProvider'=>$dataProvider, 'model'=>$model,'cate'=>$cate, 'sector' => $sector,
 		));
 
 	}
+
 
 
 
@@ -255,14 +243,37 @@ class PortafolioController extends Controller
 	}
 
 
-	public function actionView($id, $cate)
+	public function actionView($id, $cate, $sector)
 	{
 
 		$this->render('view',array(
-			'model'=>$this->loadParticipante($id), 'cate'=>$cate,
+			'model'=>$this->loadParticipante($id), 'cate'=>$cate, 'sector'=>$sector,
 		));
 		
 	}
+
+	//nueva funcion
+	public function actionFiltrar($cate)
+	{
+		$model = new TblProducto;
+		$sector = null;
+
+		if(isset($_POST['TblProducto'])){
+
+			$model->attributes = $_POST['TblProducto'];
+			echo "hay productos". $model->prod_sector;
+			if($model->prod_sector == null){
+				$sector = 0;
+			}else{
+				$sector = $model->prod_sector;
+			}
+			//exit();
+			$this->redirect(array('portafolio/buscar', 'cate'=>$cate, 'sector'=>$sector));
+		}
+
+		$this->render('filtrar',array('cate'=>$cate, 'model'=>$model));
+	}
+
 
 }
  ?>

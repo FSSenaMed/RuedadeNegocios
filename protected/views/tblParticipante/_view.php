@@ -3,18 +3,10 @@
 /* @var $data TblParticipante */
 ?>
 
-<style>
-.empresa{
-	cursor: pointer;
-}
-.empresa:hover{
-background-color:#D5E7FD;
--webkit-box-shadow: 0px 0px 20px 10px #11AFEE;
-box-shadow: 0px 0px 20px 10px #11AFEE;
-}
-</style>
 
-<div class="hero-unit empresa" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('TblParticipante/view', array('id'=>$data->part_id))?>'">
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
+
+<div class="hero-unit box-button" onclick="javascript: location.href='<?php echo Yii::app()->createUrl('TblParticipante/view', array('id'=>$data->part_id))?>'">
 <table>
 	<td>
 			
@@ -32,9 +24,7 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
 
 		</td>
 		<td>
-			<b><?php echo CHtml::encode($data->getAttributeLabel('part_id')); ?>:</b>
-			<?php echo CHtml::link(CHtml::encode($data->part_id), array('view', 'id'=>$data->part_id)); ?>
-			<br />
+
 
 			<b><?php echo CHtml::encode($data->getAttributeLabel('parti_nombreempresa')); ?>:</b>
 			<?php echo CHtml::encode($data->parti_nombreempresa); ?>
@@ -57,6 +47,15 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
                               $modelo= TblDepartamento::model()-> findByPk($data->parti_departamento);
                               echo $departamento = $modelo->dep_nombre;
                         ?>
+			<br />
+			<b><?php echo CHtml::encode($data->getAttributeLabel('parti_departamento')); ?>:</b>
+			<?php //echo CHtml::encode($data->parti_departamento); 
+                              $modelo2= TblMunicipio::model()-> findByPk($data->parti_ciudad);
+                              echo $municipio = $modelo2->mun_nombre;
+                        ?>
+			<br />
+			<b><?php echo CHtml::encode($data->getAttributeLabel('parti_telefono')); ?>:</b>
+			<?php echo CHtml::encode($data->parti_telefono); ?>
 			<br />
 	</td>
 </table>
@@ -88,5 +87,7 @@ box-shadow: 0px 0px 20px 10px #11AFEE;
 	<br />
 
 	*/ ?>
+
+	<center> <h3 class="btn-info text">Clic para ver información del participante...</h3> </center>	
 
 </div>

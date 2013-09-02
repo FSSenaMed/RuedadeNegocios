@@ -78,12 +78,12 @@ class TblProducto extends CActiveRecord
 	{
 		return array(
 			'prod_id' => 'Prod',
-			'prod_producto' => 'Prod Producto',
-			'prod_descripcion' => 'Prod Descripcion',
-			'prod_sector' => 'Prod Sector',
-			'parti_id' => 'Parti',
+			'prod_producto' => 'Producto',
+			'prod_descripcion' => 'Descripcion',
+			'prod_sector' => 'Sector',
+			'parti_id' => 'Participante',
 			'prod_estado' => 'Prod Estado',
-			'id_categoria' => 'Id Categoria',
+			'id_categoria' => 'Categoria',
 		);
 	}
 

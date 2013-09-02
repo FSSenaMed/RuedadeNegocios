@@ -16,16 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<style>
-
-.divi{
-    background-color:#D5E7FD;
-}
-
-.imagen:hover{
-    cursor: pointer;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/customs.css'; ?>">
 
 <div class="hero-unit divi">
 <h1>Participante<?php echo "    ".$model->parti_nombreempresa; ?></h1>
@@ -83,7 +74,12 @@ $this->menu=array(
 	),
 )); ?>
 </div>
-<?php echo CHtml::link(CHtml::button('Atras',array('class'=>'btn btn-success btn btn-large')),array('portafolio/buscar','cate'=>$cate)); ?>
+<?php echo CHtml::link(CHtml::button('Atras',array('class'=>'btn btn-success btn btn-large')),array('portafolio/buscar','cate'=>$cate, 'sector'=>$sector));
+echo '&nbsp;&nbsp;&nbsp'; 
+echo CHtml::link(CHtml::button('Agendarme',array('class'=>'btn btn-primary btn btn-large')),array('portafolio/consultar', 'id'=>$model->part_id)); 
 
- &nbsp;
-<?php echo CHtml::link(CHtml::button('Agendarme',array('class'=>'btn btn-primary btn btn-large')),array('portafolio/consultar', 'id'=>$model->part_id)); ?>
+?>
+
+	
+	 
+	
