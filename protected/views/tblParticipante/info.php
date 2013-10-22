@@ -1,0 +1,1 @@
+<h3>Su inscripción ha sido exitosa, se enviará un mensaje a su correo con su usuario y contraseña, pero lamentablemente no podrá participar en esta rueda, debido a que los cupos disponibles se han agotado.</h3>
